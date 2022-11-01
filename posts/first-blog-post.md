@@ -6,10 +6,10 @@ snippet: This is an excerpt of my first blog post.
 
 Hello, world!
 
-# This is a heading
+# This is h1
 
-## This is a subheading
+## This is h2
 
-**underline**
+_underline_
 
 **bold**

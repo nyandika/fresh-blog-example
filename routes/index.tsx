@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { getPosts, Post } from "@/utils/posts.ts";
+import { getPost, getPosts, Post } from "@/utils/posts.ts";
 
 export const handler: Handlers<Post[]> = {
   async GET(_req, ctx) {
@@ -21,19 +21,23 @@ export default function BlogIndexPage(props: PageProps<Post[]>) {
 }
 
 function PostCard(props: { post: Post }) {
-  const post = props.post;
+  const { post } = props;
   return (
     <div class="py-8 border(t gray-200)">
       <a class="sm:col-span-2" href={`/${post.slug}`}>
-        <h3 class="text(3xl gray-900) font-bold">{post.title}</h3>
+        <h3 class="text(3xl gray-900) font-bold">
+          {post.title}
+        </h3>
         <time class="text-gray-500">
-          {new Date(post.publishedAt).toLocaleDateString("en-US", {
+          {new Date(post.publishedAt).toLocaleDateString("en-us", {
             year: "numeric",
             month: "long",
             day: "numeric",
           })}
         </time>
-        <div class="mt-4 text-gray-900">{post.snippet}</div>
+        <div class="mt-4 text-gray-900">
+          {post.snippet}
+        </div>
       </a>
     </div>
   );
